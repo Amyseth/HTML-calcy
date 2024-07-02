@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .cal-btn {
+            height: 60px;
+            width: 60px;
+        }
+
+        .cal-display {
+            background-color: gray;
+            color: white;
+            height: 100px;
+            width: 310px;
+            border-radius: 5px;
+        }
+
+        .inputString {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .expressionString {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+
+        .valueString {
+            margin-top: 5px;
+            height: 20px;
+            display: block;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+                        <div class="row">
+                            <div class="col-12 cal-display">
+                                <div class="inputString" id="number_div">0</div>
+                                <div class="expressionString" id="expression"></div>
+                                <div class="valueString" id="value_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+                        <div class="row">
+                            <div class="col-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="NumLock"><small>Num
+                                        Lock</small></button>
+                            </div>
+                            <div class="col-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="Delete">CE</button>
+                            </div>
+                            <div class="col-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="Delete">Del</button>
+                            </div>
+                            <div class="col-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="/">/</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="7">7</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="8">8</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="9">9</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="*">x</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="4">4</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="5">5</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="6">6</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="-">-</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="1">1</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="2">2</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="3">3</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="+">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-3 align-items-center">
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <button type="button" class="btn btn-light cal-btn" style="width: 150px;"
+                                    data-event_key="0">0</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key=".">.</button>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <button type="button" class="btn btn-light cal-btn" data-event_key="=">=</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.cal-btn').on('click', function () {
+                var key = $(this).data('event_key');
+                handleInput(key);
+            });
+
+            $(document).on('keypress', function (e) {
+                var key = e.key;
+                handleInput(key);
+            });
+
+            function handleInput(key) {
+                $('.cal-btn').removeClass('active');
+                $('button[data-event_key="' + key + '"]').addClass('active');
+
+                var currentNumber = $('#number_div').text().trim();
+                var currentExpression = $('#expression').text().trim();
+                var currentValue = $('#value_div').text().trim();
+
+                if (!isNaN(key) || key === '.') {
+                    appendNumber(key);
+                } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                    generateExpression(key);
+                } else if (key === '=') {
+                    evaluateExpression();
+                } else if (key === 'Delete') {
+                    clearCalc();
+                }
+
+                function appendNumber(number) {
+                    if (currentNumber === '0') {
+                        currentNumber = '';
+                    }
+                    $('#number_div').text(currentNumber + number);
+                }
+
+                function generateExpression(operator) {
+                    $('#expression').text(currentExpression + ' ' + currentNumber + ' ' + operator);
+                    $('#number_div').text('');
+                }
+
+                function evaluateExpression() {
+                    var expression = currentExpression + ' ' + currentNumber;
+                    var result = eval(expression);
+                    $('#value_div').text('');
+                    $('#expression').text('');
+                    $('#number_div').text(result);
+                }
+
+                function clearCalc() {
+                    $('#number_div').text('');
+                    $('#expression').text('');
+                    $('#value_div').text('');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
